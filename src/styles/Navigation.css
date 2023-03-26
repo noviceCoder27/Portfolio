@@ -1,0 +1,122 @@
+.navigation {
+    padding: 1rem;
+    height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation img {
+    width: 10%;
+    max-width: 6rem;
+    min-width: 4px;
+}
+
+.toggle-modal {
+    font-size: xx-large;
+    cursor: pointer;
+    animation: toggle 0.8s forwards ease-in;
+}
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    gap: 1rem;
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    color: transparent;
+    width: 100%;
+    font-weight: 600;
+    animation: mobileModal 0.5s ease forwards, showLinks 0.5s forwards 0.2s ease-out;
+}
+
+.desktop-modal {
+    display: none;
+}
+
+.desktop-modal a {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.desktop-modal a:hover {
+    color: black;
+}
+
+button {
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    border: none;
+    font-family: Raleway;
+    font-weight: 600;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    background-color: transparent;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+}
+
+button:hover {
+    color: black;
+    background-image: linear-gradient(43deg,#4158d0,#c850c0);
+}
+
+.desktop-modal button {
+    margin-top: -0.8rem;
+}
+
+
+@keyframes mobileModal {
+    from {
+        background-image: none;
+    } 
+    to {
+        background-image: linear-gradient(43deg,#4158d0,#c850c0 0,#ffcc70); 
+    }
+}
+
+@keyframes showLinks {
+    from {
+        color: transparent;
+    }
+
+    to {
+        color: white;
+    }
+}
+
+@keyframes toggle {
+    from {
+        color: #ffcc70
+    }
+    to {
+        color: black;
+    }
+}
+
+@media(min-width: 750px) {
+    .toggle-modal {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: none;
+    }
+
+    .desktop-modal {
+        display: flex;
+        gap: 2rem;
+        color: white;
+        font-weight: 600;
+        margin-right: 5rem;
+        font-size: large;
+    }
+}
