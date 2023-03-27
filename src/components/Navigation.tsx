@@ -2,14 +2,16 @@ import '../styles/Navigation.css'
 import Me from '../images/M.png'
 import { GoThreeBars } from "react-icons/go"
 import { IoCloseSharp } from "react-icons/io5"
-import { useState } from 'react'
 
+type Props = {
+  toggle: boolean,
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-const Navigation = () => {
-  const [toggle,setToggle] = useState(true)
+const Navigation = ({toggle,setToggle}: Props) => {
   return (
-    <div className='navigation'>
-      <img src = {Me} alt = 'logo' loading='lazy' decoding='async'/>
+    <header className='navigation'>
+      <img src = {Me} alt = 'logo' loading='lazy' decoding='async' role= 'presentation'/>
       <nav className='desktop-modal'>
         <a href = '#'>Home</a>
         <a href = '#'>About</a>
@@ -20,13 +22,13 @@ const Navigation = () => {
       {toggle && <GoThreeBars className = 'toggle-modal' onClick={() => setToggle(false)}/>}
       {!toggle && <IoCloseSharp className='toggle-modal' onClick={() => setToggle(true)}/>}
       {!toggle && <nav className='mobile-nav'>
-        <a>Home</a>
-        <a>About</a>
-        <a>Projects</a>
-        <a>Contact</a>
+        <a href = '#'>Home</a>
+        <a href = '#'>About</a>
+        <a href = '#'>Projects</a>
+        <a href = '#'>Contact</a>
         <button>Resume</button>
       </nav>}
-    </div>
+    </header>
   )
 }
 

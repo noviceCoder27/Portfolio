@@ -1,27 +1,31 @@
 .navigation {
-    padding: 1rem;
     height: 20vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(20px);
 }
 
 .navigation img {
     width: 10%;
     max-width: 6rem;
     min-width: 4px;
+    margin-left: 1rem;
 }
 
 .toggle-modal {
     font-size: xx-large;
     cursor: pointer;
     animation: toggle 0.8s forwards ease-in;
+    margin-right: 1rem;
 }
 .mobile-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
     margin-top: 3rem;
     gap: 1rem;
     position: absolute;
@@ -32,8 +36,34 @@
     color: transparent;
     width: 100%;
     font-weight: 600;
-    animation: mobileModal 0.5s ease forwards, showLinks 0.5s forwards 0.2s ease-out;
+    background-image: linear-gradient(43deg,#4158d0,#c850c0 0,#ffcc70); 
+    animation: mobileModal 0.5s ease forwards;
 }
+
+.mobile-nav a {
+    color: transparent;
+    text-decoration: none;
+}
+
+.mobile-nav a:hover {
+    color: black !important;
+}
+
+.mobile-nav a:first-child {
+    margin-top: 1rem;
+}
+
+.mobile-nav button {
+    background-color: transparent;
+    box-shadow: none;
+    color: transparent;
+    animation: showBtn 1s forwards 0.3s;
+}
+
+.mobile-nav a:nth-child(1) { animation: showLinks 1s ease-out forwards 0.1s; }
+.mobile-nav a:nth-child(2) { animation: showLinks 1s ease-out 0.2s forwards; }
+.mobile-nav a:nth-child(3) { animation: showLinks 1s ease-out 0.3s forwards; }
+.mobile-nav a:nth-child(4) { animation: showLinks 1s ease-out 0.4s forwards; }
 
 .desktop-modal {
     display: none;
@@ -62,6 +92,7 @@ button {
     -webkit-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+    margin-bottom: 1rem;
 }
 
 button:hover {
@@ -76,10 +107,10 @@ button:hover {
 
 @keyframes mobileModal {
     from {
-        background-image: none;
+        height: 1px;
     } 
     to {
-        background-image: linear-gradient(43deg,#4158d0,#c850c0 0,#ffcc70); 
+        height: 220px;
     }
 }
 
@@ -93,6 +124,22 @@ button:hover {
     }
 }
 
+@keyframes showBtn {
+    from {
+        background-color: transparent;
+        box-shadow: none;
+        color: transparent
+    }
+
+    to {
+        background-color: transparent;
+         color: white;
+        -webkit-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+        box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
+    }
+}
+
 @keyframes toggle {
     from {
         color: #ffcc70
@@ -102,7 +149,7 @@ button:hover {
     }
 }
 
-@media(min-width: 750px) {
+@media (min-width: 750px) {
     .toggle-modal {
         display: none;
     }

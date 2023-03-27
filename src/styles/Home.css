@@ -1,0 +1,126 @@
+
+.intro {
+    margin-top: 2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    font-size: large; 
+    color: white;
+}
+
+.intro h2, h1 {
+    font-weight: 600;
+}
+
+h1 {
+    margin-top: 1.5rem;
+    font-size: 200%;
+}
+
+h2 {
+    margin: 0;
+}
+
+.greet {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.greet span {
+    margin-top: -0.8rem;
+    font-size: 200%;
+    animation: wave 2s infinite;
+    transform-origin: 90% 90%;
+}
+.cover-pic {
+    margin-left: 5rem;
+    margin-top: 2rem;
+    width: 60%;
+}
+
+.role {
+    margin: 1.5rem 0;
+    padding-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: blink 1.2s infinite, movement 5s ease-out;
+}
+
+.role h2:nth-child(1) {
+    animation: switchRoles 2s ease  1s;
+}
+.delay-view {
+    display: none;
+}
+
+.icons {
+    margin: 2rem;
+    display: flex;
+    gap: 4rem;
+    font-size: xx-large;
+}
+
+.icon:hover {
+    cursor: pointer;
+    color: black;
+}
+
+@keyframes wave {
+    0%  { transform: rotate(0deg);  }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg) ; }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes blink {
+    from {
+        border-right: 2px solid transparent;
+    }
+    to {
+        border-right: 2px solid white;
+    }
+}
+
+@keyframes movement {
+    0% {
+        width: 226px ;
+    }
+
+    50% {
+        width: 0px ;
+    }
+
+    100% {
+        width: 226px ;
+    }
+}
+
+@keyframes switchRoles {
+    0% {
+        color :white
+    }
+
+    50% {
+        color: transparent;
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+@media (min-width: 750px) {
+    main {
+        display: flex;
+    }
+
+    .cover-pic {
+        margin-left: auto;
+        width: 50%;
+    }
+}
