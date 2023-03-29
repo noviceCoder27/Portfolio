@@ -20,23 +20,9 @@ export const Home = ({toggle}: Props) => {
             <h1>I'm Mugdhatanu Dev Goswami</h1>
             <div className='role'>
                 <h2>A</h2> 
-                <h2>
-                    <span>W</span>
-                    <span>e</span>
-                    <span>b</span>
-                </h2>
-                <h2 className='delay-view'>Frontend</h2>
-                <h2>
-                    <span>D</span>
-                    <span>e</span>
-                    <span>v</span>
-                    <span>e</span>
-                    <span>l</span>
-                    <span>o</span>
-                    <span>p</span>
-                    <span>e</span>
-                    <span>r</span>
-                </h2>
+                <h2 className='web'>Web</h2>
+                <h2 className='frontend'>Frontend</h2>
+                <h2>Developer</h2>
             </div>
             <div className='icons'>
                 <BsGithub className='icon'/>

@@ -1,4 +1,8 @@
-
+main {
+    height: 100%;
+    min-height: 80vh;
+    overflow-x: hidden;
+}
 .intro {
     margin-top: 2rem;
     margin-left: 5rem;
@@ -13,11 +17,12 @@
 
 h1 {
     margin-top: 1.5rem;
-    font-size: 200%;
+    font-size: max(2rem,2.2vw);
 }
 
 h2 {
     margin: 0;
+    font-size: max(1.5rem,1.8vw);
 }
 
 .greet {
@@ -36,6 +41,7 @@ h2 {
     margin-left: 5rem;
     margin-top: 2rem;
     width: 60%;
+    max-width: 600px;
 }
 
 .role {
@@ -44,21 +50,36 @@ h2 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    animation: blink 1.2s infinite, movement 5s ease-out;
+    overflow: hidden;
+    width: fit-content;
+    margin-right: 3rem;
+    animation: blink 0.8s infinite ease,movement 5s ease-out 1s;
 }
 
-.role h2:nth-child(1) {
-    animation: switchRoles 2s ease  1s;
+.web {
+    visibility: visible;
+    animation: hideWeb 1s forwards 2.5s;
 }
-.delay-view {
-    display: none;
+
+
+.frontend {
+    visibility: hidden;
+    width: 0;
+    margin-left: -0.2rem;
+    animation: showFrontend 1s forwards 3s;
+   
 }
 
 .icons {
     margin: 2rem;
     display: flex;
-    gap: 4rem;
-    font-size: xx-large;
+    gap: max(4vw,4rem);
+    font-size: max(2vw, 2rem);
+    width: max(fit-content,25vw);
+}
+
+.icon {
+    min-width: 20px;
 }
 
 .icon:hover {
@@ -92,35 +113,61 @@ h2 {
     }
 
     50% {
-        width: 0px ;
+        width: 1rem ;
     }
 
     100% {
-        width: 226px ;
+        width: 285px;
     }
 }
 
-@keyframes switchRoles {
-    0% {
-        color :white
+@keyframes hideWeb {
+    from {
+      visibility: visible;
     }
-
-    50% {
-        color: transparent;
+    to {
+      visibility: hidden;
+      width: 0;
     }
+  }
 
-    100% {
-        color: white;
+  @keyframes showFrontend {
+    from {
+      visibility: hidden;
     }
-}
+    to {
+      visibility: visible;
+      width: 100%;
+    }
+  }
 
-@media (min-width: 750px) {
+
+@media (min-width: 800px) {
     main {
         display: flex;
+        justify-content: center;
     }
 
     .cover-pic {
-        margin-left: auto;
+        
         width: 50%;
+    }
+}
+
+@media (max-width: 350px) {
+    .intro {
+        margin-left: 0.5rem;
+    }
+
+    .icons {
+        margin-right: 0rem;
+        margin-top: 2rem;
+        margin-left: 0rem;
+    }
+}
+
+@media (min-width: 350px) and (max-width: 400px){
+    .icons {
+        margin-left: 0rem;
     }
 }

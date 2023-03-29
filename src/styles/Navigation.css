@@ -1,11 +1,17 @@
+
 .navigation {
     height: 20vh;
+    width: var(--width);
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.scrolled {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(20px);
 }
 
@@ -92,7 +98,6 @@ button {
     -webkit-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
     box-shadow: 3px 3px 16px 0px rgba(0,0,0,0.75);
-    margin-bottom: 1rem;
 }
 
 button:hover {

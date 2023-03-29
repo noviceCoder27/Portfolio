@@ -2,6 +2,7 @@ import '../styles/Navigation.css'
 import Me from '../images/M.png'
 import { GoThreeBars } from "react-icons/go"
 import { IoCloseSharp } from "react-icons/io5"
+import { useState, useEffect } from 'react'
 
 type Props = {
   toggle: boolean,
@@ -9,8 +10,25 @@ type Props = {
 }
 
 const Navigation = ({toggle,setToggle}: Props) => {
+  const [scrolled, setScrolled] = useState(false);
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 10) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className='navigation'>
+    <header className={`navigation ${scrolled ? 'scrolled' : ''}`}>
       <img src = {Me} alt = 'logo' loading='lazy' decoding='async' role= 'presentation'/>
       <nav className='desktop-modal'>
         <a href = '#'>Home</a>
