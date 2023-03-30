@@ -109,7 +109,7 @@ h2 {
 
 @keyframes movement {
     0% {
-        width: 226px ;
+        width: max(214px,15vw);
     }
 
     50% {
@@ -117,7 +117,7 @@ h2 {
     }
 
     100% {
-        width: 285px;
+        width: max(258px,18.7vw);
     }
 }
 
