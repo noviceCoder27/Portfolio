@@ -6,10 +6,11 @@ import {BsGithub} from 'react-icons/bs'
 import {AiFillInstagram} from 'react-icons/ai'
 
 type Props = {
-    toggle: boolean
-}
+    toggle: boolean,
+    setToggle: React.Dispatch<React.SetStateAction<boolean>>
+  }
 
-export const Home = ({toggle}: Props) => {
+export const Home = ({toggle,setToggle}: Props) => {
   return (
     <main>
         <section className="intro">
@@ -25,10 +26,10 @@ export const Home = ({toggle}: Props) => {
                 <h2>Developer</h2>
             </div>
             <div className='icons'>
-                <BsGithub className='icon'/>
-                <FaLinkedinIn className='icon'/>
-                <BsTwitter className='icon'/>
-                <AiFillInstagram className='icon'/>
+                <a href = 'https://github.com/noviceCoder27' target= '_blank'><BsGithub className='icon' /></a>
+                <a href = 'https://www.linkedin.com/in/mugdhatanu-dev-goswami-aa3b79214/' target= '_blank'><FaLinkedinIn className='icon'/></a>
+                <a href = 'https://twitter.com/mugdhatanu' target= '_blank'><BsTwitter className='icon'/></a>              
+                <a href = '#'><AiFillInstagram className='icon'/></a>
             </div>
         </section>
         <img src = {CoverPic}  loading='lazy' decoding='async' role= 'presentation' className='cover-pic'/>

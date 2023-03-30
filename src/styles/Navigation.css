@@ -25,7 +25,7 @@
 .toggle-modal {
     font-size: xx-large;
     cursor: pointer;
-    animation: toggle 0.8s forwards ease-in;
+    animation: toggle 0.5s forwards ease-in;
     margin-right: 1rem;
 }
 .mobile-nav {

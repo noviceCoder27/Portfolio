@@ -7,10 +7,12 @@ import { Link } from 'react-router-dom'
 
 type Props = {
   toggle: boolean,
-  setToggle: React.Dispatch<React.SetStateAction<boolean>>
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>,
+  showModal: boolean,
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>,
 }
 
-const Navigation = ({toggle,setToggle}: Props) => {
+const Navigation = ({toggle,setToggle,showModal,setShowModal}: Props) => {
   const [scrolled, setScrolled] = useState(false);
   const handleScroll = () => {
     const offset = window.scrollY;
@@ -28,6 +30,16 @@ const Navigation = ({toggle,setToggle}: Props) => {
     };
   }, []);
 
+  function hideModal() {
+    setToggle(true)
+    setShowModal(false)
+  }
+
+  function dispalyModal() {
+    setToggle(false)
+    setShowModal(true)
+  }
+
   return (
     <header className={`navigation ${scrolled ? 'scrolled' : ''}`}>
       <img src = {Me} alt = 'logo' loading='lazy' decoding='async' role= 'presentation'/>
@@ -38,13 +50,13 @@ const Navigation = ({toggle,setToggle}: Props) => {
         <Link to = '/contact'>Contact</Link>
         <button>Resume</button>
       </nav>
-      {toggle && <GoThreeBars className = 'toggle-modal' onClick={() => setToggle(false)}/>}
-      {!toggle && <IoCloseSharp className='toggle-modal' onClick={() => setToggle(true)}/>}
-      {!toggle && <nav className='mobile-nav'>
-        <Link to = '/'>Home</Link>
-        <Link to = '/about'>About</Link>
-        <Link to = '/project'>Projects</Link>
-        <Link to = '/contact'>Contact</Link>
+      {toggle && <GoThreeBars className = 'toggle-modal' onClick={dispalyModal}/>}
+      {!toggle && <IoCloseSharp className='toggle-modal' onClick= {hideModal}/>}
+      {!toggle && showModal && <nav className='mobile-nav'>
+        <Link to = '/' onClick={hideModal}>Home</Link>
+        <Link to = '/about' onClick={hideModal}>About</Link>
+        <Link to = '/project' onClick={hideModal}>Projects</Link>
+        <Link to = '/contact' onClick={hideModal}>Contact</Link>
         <button>Resume</button>
       </nav>}
     </header>

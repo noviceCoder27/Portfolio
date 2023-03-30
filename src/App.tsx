@@ -11,6 +11,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 function App() {
   const [toggle,setToggle] = useState(true)
+  const [showModal,setShowModal] = useState(true)
+  console.log(showModal)
   const [dimensions,setDimensions] = useState({width: `${screen.width}`, height: `${screen.height}`})
   window.onresize = () => {
    setDimensions({width: `${screen.width}`, height: `${screen.height}`})
@@ -22,12 +24,15 @@ function App() {
         <Navigation 
           toggle = {toggle}
           setToggle = {setToggle}
+          showModal = {showModal}
+          setShowModal = {setShowModal}          
         />
         <Routes>
-          <Route path = '/' element = {<Home toggle = {toggle}/>}/>
+          <Route path = '/' element = {<Home toggle = {toggle}
+          setToggle = {setToggle} />}/>
           <Route path = 'about' element = {<About />}/>
           <Route path = 'project' element = {<Projects />}/>
-          <Route path = 'contact' element = {<Contact />}/>
+          <Route path = 'contact' element = {<Contact />} />
         </Routes>
       </Router>
   )
